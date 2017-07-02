@@ -12,6 +12,10 @@
 		CB67217B1F08CFE100DE9FF8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB6721791F08CFE100DE9FF8 /* Main.storyboard */; };
 		CB67217D1F08CFE100DE9FF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB67217C1F08CFE100DE9FF8 /* Assets.xcassets */; };
 		CB6721801F08CFE100DE9FF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB67217E1F08CFE100DE9FF8 /* LaunchScreen.storyboard */; };
+		CB6721891F08D00500DE9FF8 /* HomeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6721871F08D00500DE9FF8 /* HomeTableView.swift */; };
+		CB67218A1F08D00500DE9FF8 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6721881F08D00500DE9FF8 /* HomeTableViewCell.swift */; };
+		CB67218C1F08D37300DE9FF8 /* RoomDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB67218B1F08D37300DE9FF8 /* RoomDetailViewController.swift */; };
+		CB67218E1F08D4B800DE9FF8 /* HGVIewKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB67218D1F08D4B800DE9FF8 /* HGVIewKit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		CB67217C1F08CFE100DE9FF8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB67217F1F08CFE100DE9FF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CB6721811F08CFE100DE9FF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB6721871F08D00500DE9FF8 /* HomeTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableView.swift; sourceTree = "<group>"; };
+		CB6721881F08D00500DE9FF8 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		CB67218B1F08D37300DE9FF8 /* RoomDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomDetailViewController.swift; sourceTree = "<group>"; };
+		CB67218D1F08D4B800DE9FF8 /* HGVIewKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HGVIewKit.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,8 +62,12 @@
 		CB6721741F08CFE100DE9FF8 /* transitionAnimation */ = {
 			isa = PBXGroup;
 			children = (
+				CB67218D1F08D4B800DE9FF8 /* HGVIewKit.swift */,
 				CB6721751F08CFE100DE9FF8 /* AppDelegate.swift */,
 				CB6721771F08CFE100DE9FF8 /* ViewController.swift */,
+				CB6721871F08D00500DE9FF8 /* HomeTableView.swift */,
+				CB6721881F08D00500DE9FF8 /* HomeTableViewCell.swift */,
+				CB67218B1F08D37300DE9FF8 /* RoomDetailViewController.swift */,
 				CB6721791F08CFE100DE9FF8 /* Main.storyboard */,
 				CB67217C1F08CFE100DE9FF8 /* Assets.xcassets */,
 				CB67217E1F08CFE100DE9FF8 /* LaunchScreen.storyboard */,
@@ -136,7 +148,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB67218E1F08D4B800DE9FF8 /* HGVIewKit.swift in Sources */,
+				CB6721891F08D00500DE9FF8 /* HomeTableView.swift in Sources */,
 				CB6721781F08CFE100DE9FF8 /* ViewController.swift in Sources */,
+				CB67218A1F08D00500DE9FF8 /* HomeTableViewCell.swift in Sources */,
+				CB67218C1F08D37300DE9FF8 /* RoomDetailViewController.swift in Sources */,
 				CB6721761F08CFE100DE9FF8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
