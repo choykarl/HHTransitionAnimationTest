@@ -1,3 +1,3 @@
 # HHTransitionAnimationTest
 动画测试
-![效果](img_url)
+![效果](HHTransitionAnimationTest/resource/transitionAnimation.gif)
