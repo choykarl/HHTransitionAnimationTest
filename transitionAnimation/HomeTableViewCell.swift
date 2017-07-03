@@ -90,33 +90,52 @@ class HomeCollectionViewCell: UICollectionViewCell {
 }
 
 extension HomeCollectionViewCell {
+  // 主要的思路是将全屏截图
+  // 然后获取到当前点击的cell的位置
+  // 然后将屏幕图片切割成5个部分
+  // 当前点击cell的上部和下部,当前点击cell的左边和右边和当前的点击的cell这5个部分
+  // 然后将这5部分直接用5个UIImageView加在当前控制器上
+  // 给这个5个UIImageView做动画
+  // 动画结束,直接无动画的push到下个页面
   func clipScreen() -> (topModel: AnimationModel, bottomModel: AnimationModel, leftImageModel: AnimationModel, rightImageModel: AnimationModel, tapImageModel: AnimationModel) {
+    
+    // 给当前控制器view截图
     let cgImageRef = viewController()?.view.window?.snapshotImage().cgImage
+    
+    // 获取点击的cell上的imageView
     let imageView = getPictureImageView()
+    // 将这个imageView坐标系转换到主窗口
     guard let convertRect = imageView.superview?.convert(imageView.frame, to: nil) else {
       fatalError("cell的imageView的superView怎么能为空呢!!!!")
     }
+    
     let scale = UIScreen.main.scale
+    // 根据点击的cell上的图片在主窗口上的位置,将前面截的图分割为上下左右4个部分
     let topRect = CGRect(x: 0, y: 0, width: ScreenWidth * scale, height: convertRect.origin.y * scale)
     let bottomRect = CGRect(x: 0, y: convertRect.maxY * scale, width: ScreenWidth * scale, height: (ScreenHeight - convertRect.maxY) * scale)
     let leftRect = CGRect(x: 0, y: convertRect.origin.y * scale, width: convertRect.origin.x * scale, height: convertRect.height * scale)
     let rightRect = CGRect(x: convertRect.maxX * scale, y: convertRect.origin.y * scale, width: (ScreenWidth - convertRect.maxX) * scale, height: convertRect.height * scale)
+    
+    // 根据上面计算的上下左右4个rect,将截图切割开
     let topCgImage = cgImageRef?.cropping(to: topRect)
     let bottomCgImage = cgImageRef?.cropping(to: bottomRect)
     let leftCgImage = cgImageRef?.cropping(to: leftRect)
     let rightCgImage = cgImageRef?.cropping(to: rightRect)
+    
+    /* 包装成模型方便用
+       模型里包括,切割后的图片,动画的起始位置,和动画的结束位置
+     */
     
     // 上
     let topModel = AnimationModel(image: UIImage(cgimage: topCgImage), startRect: CGRect(x: 0, y: 0, width: ScreenWidth, height: convertRect.origin.y), endRect: CGRect(x: 0, y: -convertRect.origin.y, width: ScreenWidth, height: convertRect.origin.y))
     // 下
     let bottomModel = AnimationModel(image: UIImage(cgimage: bottomCgImage), startRect: CGRect(x: 0, y: convertRect.maxY, width: ScreenWidth, height: (ScreenHeight - convertRect.maxY)), endRect: CGRect(x: 0, y: ScreenHeight, width: ScreenWidth, height: ScreenHeight - convertRect.maxY))
     // 左
-    
     let s = 276 / convertRect.height
     let leftModel = AnimationModel(image: UIImage(cgimage: leftCgImage), startRect: CGRect(x: 0, y: convertRect.origin.y, width: convertRect.origin.x, height: convertRect.height), endRect: CGRect(x: -convertRect.origin.x * s, y: 0, width: convertRect.origin.x * s, height: convertRect.height * s))
     // 右
     let rightModel = AnimationModel(image: UIImage(cgimage: rightCgImage), startRect: CGRect(x: convertRect.maxX, y: convertRect.origin.y, width: ScreenWidth - convertRect.maxX, height: convertRect.height), endRect: CGRect(x: ScreenWidth, y: 0, width: (ScreenWidth - convertRect.maxX) * s, height: convertRect.height * s))
-    
+    // 当前点击的
     let tapModel = AnimationModel(image: imageView.image, startRect: convertRect, endRect: CGRect(x: 0, y: 0, width: ScreenWidth, height: 276))
     return(topModel, bottomModel, leftModel, rightModel, tapModel)
   }
