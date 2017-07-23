@@ -1,4 +1,6 @@
 # HHTransitionAnimationTest
+
+简书: http://www.jianshu.com/u/1fcb80d47195
 动画测试
 
 ![效果](https://github.com/haohaocai/HHTransitionAnimationTest/blob/master/resource/transitionAnimation.gif)
